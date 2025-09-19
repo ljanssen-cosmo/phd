@@ -8,7 +8,10 @@
 *.synctex.gz
 *.bbl
 *.blg
+*.bcf
+*.xml
 *.lof
 *.lot
 *.gz
+*.pdf
 .vscode/
