@@ -40,8 +40,47 @@
 \hypersetup{linkcolor=black}
 \tableofcontents
 
+How were the tiny temperature fluctuations in the cosmic microwave background generated? How did the large scale structures observed today evolve from a smooth and homogeneous background? Tiny density fluctuations, which grow under the influence of gravity into the structures we observe today. They can also be responsible for the temperature fluctuations in the cmb. But how can these initial conditions be created? Usually, physics solves initial value problems - in classical mechanics, if the initial conditions are given, the trajectory into the future can be calculated. But in this case, the question is not how the initial conditions lead to what we observe today, but the fundamental question is, how were these initial conditions generated. As we will see, these fluctuations can be generated from a period of exponential expansion, which is called inflation Quantum fluctuations get stretched into the classical realm, which leave tiny scalar, vector, and tensor perturbations. These (well, vectors dissipate quickly) can evolve into the observables we see today (cmb, lss, \dots) and observables we hope to detect in the future (primordial gravitational wave background, B-modes in the cmb, \dots). 
+
+\section{Background}
+We assume the FLRW metric for the spacetime of the universe in comoving coordinates
+\begin{equation}
+    \mathrm{d}s^2 = -\mathrm{d}t^2 + a^2(t)\left(\mathrm{d}r^2 + r^2(\mathrm{d}\theta^2 + \sin^2\theta \mathrm{d}\phi^2)\right).
+\end{equation}
+This includes the assumption of statistical homogeneity and isotropy, which translate to translation invariance and rotational invariance. This also includes that gravity is described by general relativity. It is safe to assume that the universe is flat (based on observations by Planck). The expansion of the universe is quantified by the Hubble expansion rate $H= \dot{a}/a$. Here, $a(t)$ is the scale factor, which characterizes the expansion of spacelike hypersurfaces. It will be helpful to define conformal time
+\begin{equation}
+    \tau = \int \frac{\mathrm{d}t}{a(t)}.
+\end{equation}
+The analogy used by bauman is that conformal time is like a clock which slows down with the epxansion of the universe. 
+
+Photons follow null geodesics $\mathrm{d}s^2 = 0$, so that in an isotropic universe, light travels accouring
+\begin{equation}
+    r(\tau) = \pm \tau + \mathrm{ const.}.
+\end{equation}
+This allows to define two very important concepts: the particle- and event horizon.
+
+The particle horizon is the maximum comoving distance light could have propgated in a specific time frame
+\begin{equation}
+    r_{\mathrm{p}} = \tau - \tau_i = \int_{t}^{t_i} \frac{\mathrm{d}t}{a(t)}.
+\end{equation}
+The size of the particle horizon since the origin of the universe ($t_i = 0$) is $d_\mathrm{p}(t) = a(t) r_{\mathrm{p}}$. The classical picture of big bang cosmology sets the particle horizon to a finite size in th eoast. This means that regions in spacetime were not in causal contact in the past. 
+
+The event horizon is the distance from which a photon can never be received by an observer
+\begin{equation}
+    r \geq r_\mathrm{e} = \int_{\tau_\mathrm{max}}^{\tau} \mathrm{d}\tau = \tau_\mathrm{max} - \tau.
+\end{equation}
+
+(The rest of cosmology should be clear)
+
+
 \section{Inflation}
 \subsection{Why?}
+We will    now discuss some problems in the classical big bang cosmology picture. From the cmb, we see that the inhomogeneities used to be much smaller than they are today. This would suggest that at an even earlier time, the inhomgeniteis used to be even smaller than in the cmb. How is that smooth of a field created? Another puzzling observation is that patches in spacetime in the past were not causallly connected. Why then, are causally disconnected patches so similar? This therefore ties in with the horizon problem. The comoving Hubble radius $(aH)^{-1}$ can be written in terms of the equation of state $\omega$. When $\omega$ is positive, the Hubble radius grows with time. This means that the particle horizon also increases with time 
+\begin{equation}
+    \tau = \int_{0}^{a}\mathrm{d}\ln a (aH)^{-1}.
+\end{equation}
+This means that scales entering the horizon today, have been outside the horizon in the past. Still, the cmb is almost perfectly homogeneous. So the question is how were the regions that were not in causal contact able to equilibrate.
+
 \subsection{How?}
 
 \section{Statistics of Random Fields}
@@ -53,14 +92,12 @@
 
 \subsection{Tensor Perturbations}
 
-\section{Observing Perturbations}
+\section{Observables}
 
 \subsection{Cosmic Microwave Background}
 
 \subsubsection{Temperature Fluctuations}
 \subsubsection{Polarization}
-
-\section{Problems with Observing B Modes}
 
 \section{Tensor Bispectrum}
 
