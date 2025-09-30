@@ -81,7 +81,46 @@ We will    now discuss some problems in the classical big bang cosmology picture
 \end{equation}
 This means that scales entering the horizon today, have been outside the horizon in the past. Still, the cmb is almost perfectly homogeneous. So the question is how were the regions that were not in causal contact able to equilibrate.
 
+\subsubsection{\textit{The Horizon Problem}}
+
+A universe that is dominbated by a perfect fluid has a comoving horizon that grows monotonically. This means that scalaes enetering the horizon today could have never been in causal contact with each other. Still, the cmb is very close to being homoegneous in its temperature fluctuations. 
+
+\subsubsection{\textit{The Flatness Problem}}
+The universe is very closely approximated by flat space. This is also shown by recent observations which measure the curvature $k \approx 1$. According to general relativity, spacetime curves in response to the amount of matter in the universe. The Friedmann equation
+\begin{equation}
+    H^2 = \frac{1}{3}\rho - \frac{k}{a^2}
+\end{equation}
+implies that the difference of the density parameter from unity depends on the amount of curvature
+\begin{align}
+    1 &= \frac{\rho}{3H^2} - \frac{k}{/(aH)^2}\\
+    &= \Omega - \frac{k}{/(aH)^2}.
+\end{align}
+Then, if $(aH)^2$ grows with time $\abs{\Omega - 1}$ grows without a bound and $\Omega = 1$ is an unstable fix point. This means that any small deviations from the fixed point grows over time. Fine-tuning of $\Omega$ to a value very close to unity in the early universe could fix this problem, but it is more reasonable to search for a mechanism that can create this flatness in the late universe. 
+
 \subsection{How?}
+A theory that includes these initial conditions, or a period in the universe that ends with these conditions is needed. To solve these problems we look at the conditions that are needed. If the comoving horizon is much larger than $(aH)^{-1}$ now, particles are not able to communicate now, but they were able to at tan earlier time. This means that the Hubble radius must have been larger than the comoving horizon in the past. This in turn means that $(aH)^{-1}$ must have decreased. See figure \ref{fig:hubble_radius} for a representation of the evolution of the comoving Hubble radius. 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/ComovingHubbleRadius.png}
+    \caption{Taken from Baumann}
+    \label{fig:hubble_radius}
+\end{figure}
+During inflation $H$ is constant, but $a$ grows exponentially, resulting in $(aH)^{-1}$ decreasing. Then, $\Omega = 1$ is a stable fixed point and the universe is driven towards flatness, instead of away from it. Scales entering the horizon today, were inside the horizon before and therefore in causal contact. To have a shrinking Hubble sphere, we needed
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{1}{aH}\right) < 0\\ 
+    \rightarrow \ddot{a} > 0.
+\end{equation}
+This means that a period of accelerated expansion is needed. This period is called \textit{Inflation}. It is important to know how long this period must've lasted. For this, we introduce e-folds N
+\begin{equation}
+    \mathrm{d}N = H\mathrm{d}t = \mathrm{d}\ln a.
+\end{equation}
+If we introduce the parameter $\epsilon \equiv - \frac{ \dot{H}}{H^2}$, the accelerated expansion corresponds to 
+\begin{equation}
+    \epsilon = - \frac{\mathrm{d}\ln H}{\mathrm{d}N}<1.
+\end{equation}
+
+\subsection{Single-Field Slow-Roll Inflation}
+Okay good. We have now established that a period of exponential expansion can solve the horizon and flatness problem by requiring a shrinking comoving Hubble radius. We will now discuss the simplest mechanism to achieve this. 
 
 \section{Statistics of Random Fields}
 
