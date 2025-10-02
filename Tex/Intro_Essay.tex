@@ -15,6 +15,19 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xcolor}
 \usepackage[colorlinks,linkcolor=pink,citecolor=pink,urlcolor=pink]{hyperref}
+\usepackage{booktabs}
+
+\newcommand*\Diff[1]{\mathrm{d}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\umetric{\mathop{}\!g^{\mu\nu}}
+\newcommand*\dmetric{\mathop{}\!g_{\mu\nu}}
+\newcommand{\pr}[1]{\left(#1\right)}
+
+
+\newcommand*\tumetric{\mathop{}\!\tilde{g}^{\mu \nu}}
+\newcommand*\tdmetric{\mathop{}\!\tilde{g}_{\mu \nu}}
+\newcommand*\vol{\mathrm{d}^4x}
+\newcommand*\sqrtg{\sqrt{-\tilde{g}}}
 
 % Define color
 \definecolor{brightpink}{RGB}{255,120,150}
@@ -37,12 +50,113 @@
 
 \maketitle
 
+How were the tiny temperature fluctuations in the cosmic microwave background generated? How did the large scale structures observed today evolve from a smooth and homogeneous background? Tiny density fluctuations, which grow under the influence of gravity into the structures we observe today. They can also be responsible for the temperature fluctuations in the cmb. But how can these initial conditions be created? Usually, physics solves initial value problems - in classical mechanics, if the initial conditions are given, the trajectory into the future can be calculated. But in this case, the question is not how the initial conditions lead to what we observe today, but the fundamental question is, how were these initial conditions generated. As we will see, these fluctuations can be generated from a period of exponential expansion, which is called inflation Quantum fluctuations get stretched into the classical realm, which leave tiny scalar, vector, and tensor perturbations. These (well, vectors dissipate quickly) can evolve into the observables we see today (cmb, lss, \dots) and observables we hope to detect in the future (primordial gravitational wave background, B-modes in the cmb, \dots). 
 \hypersetup{linkcolor=black}
 \tableofcontents
 
-How were the tiny temperature fluctuations in the cosmic microwave background generated? How did the large scale structures observed today evolve from a smooth and homogeneous background? Tiny density fluctuations, which grow under the influence of gravity into the structures we observe today. They can also be responsible for the temperature fluctuations in the cmb. But how can these initial conditions be created? Usually, physics solves initial value problems - in classical mechanics, if the initial conditions are given, the trajectory into the future can be calculated. But in this case, the question is not how the initial conditions lead to what we observe today, but the fundamental question is, how were these initial conditions generated. As we will see, these fluctuations can be generated from a period of exponential expansion, which is called inflation Quantum fluctuations get stretched into the classical realm, which leave tiny scalar, vector, and tensor perturbations. These (well, vectors dissipate quickly) can evolve into the observables we see today (cmb, lss, \dots) and observables we hope to detect in the future (primordial gravitational wave background, B-modes in the cmb, \dots). 
+\section{Cosmology}
+To solve the EFE on cosmological scales, two fundamental assumptions are made: isotropy and homogeneity. When applying these assumptions to the metric, the FLRW metric is obtained 
+\begin{equation}
+    \Diff) s^2 = - \Diff) t^2 + a^2\pr{t} \Diff) \sigma^2
+\end{equation}
+with scale factor $a\pr{t}$, and three-dimensional, spatial line-element 
+\begin{equation}
+    \Diff) \sigma^2 = \frac{\Diff) r^2}{1 - kr^2} + r^2 \Diff) \Omega^2.
+\end{equation}
+Here, $\Diff) \Omega^2$ is the angular part of the line element in flat, three-dimensional space, and $k = -1, 0, +1$ corresponds to constant curvature of a closed, flat, and open geometry, respectively. In this thesis, a flat geometry ($k$ = 0) is assumed, which is supported by observations of the curvature being very close to zero today. The line element can thus be written as
+\begin{align}
+    \Diff) s^2 &= - \Diff) t^2 + a^2\pr{t} \pr{\Diff) r^2 + r^2 \Diff) \Omega^2}\\
+    &= - \Diff) t^2 + a^2\pr{t} \pr{\Diff)x^2 + \Diff)y^2 + \Diff)z^2},
+\end{align}
+with the scale factor $a$ characterizing the expansion of space.
 
-\section{Background}
+\subsection{The \texorpdfstring{$\Lambda$CDM}{LambdaCDM} Model}
+The energy content of the universe in the $\Lambda$CDM model consists of dark matter, ordinary matter, dark energy as a cosmological constant, and radiation. Ordinary matter, also called baryonic matter, interacts according to the standard model of particle physics. For a long time, it was believed to be the only form of matter in the universe, but astrophysical observations have shown that there must be more matter than what is visible. This invisible matter is known as dark matter. As its name implies, it does not interact electromagnetically. However, it does interact gravitationally, meaning that it can account for observations of ``missing'' mass in galaxies and galaxy clusters, as well as flat rotation curves of galaxies and other observational phenomena. Another assumption in the $\Lambda$CDM model is that dark matter is non-relativistic and pressureless, characteristics that are reflected in the term CMB. Lastly, photons and neutrinos make up a very small fraction of the total energy content as radiation. Photons, which decoupled from the intergalactic medium about 380,000 years after the big bang, are observed today. These photons make up the CMB, which was first discovered in 1965.\footnote{Arno Penzias and Robert Wilson were awarded the Nobel Prize for their detection of the CMB in 1978. The two had set out to detect radio signals, but encountered a constant background signal, which was then interpreted as the CMB with a temperature of $3.5^\circ K$ by Robert Dicke and his collaborators.} Similarly, neutrinos, which decoupled a little earlier than photons, form the cosmic neutrino background, which is yet to be observed directly. Both are treated as relativistic species and do not interact with their surroundings after decoupling. Observations from the Planck mission provide an estimate of the distribution of the universe's energy content (see table \ref{GR:tab:planckdensityparam}).
+\begin{table}[t!]
+    \centering
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
+        \midrule
+        Matter Density & $\Omega_{\mathrm{m}}$ & $0.3153 \pm 0.0073$ \\
+        Dark Energy Density & $\Omega_\Lambda$ & $0.6847 \pm 0.0073$ \\
+        Hubble Constant & $H_0$ & $67.36\pm 0.54$ km/s/Mpc \\
+        \bottomrule
+    \end{tabular}
+    \caption[Cosmological parameters from the Planck satellite mission .]{Cosmological parameters from the Planck satellite mission . These are derived from the CMB anisotropies in the 68\% intervals.}
+    \label{GR:tab:planckdensityparam}
+\end{table}
+
+The energy-momentum tensor for a perfect fluid is
+\begin{equation}\label{Cosmo:energy_momentum_tensor}
+    T_{\mu\nu} = \pr{\rho + p}u_\mu u_\nu + p g_{\mu\nu},
+\end{equation}
+where $\rho$ is the energy density, $p$ is the pressure, and $u_\mu$ is the dual of the four velocity of the fluid. From the EFE, together with the second contracted Bianchi identity, the conservation of energy 
+\begin{equation}\label{eqn:conservationeq}
+    T_{\mu\nu}^{;\mu} = 0
+\end{equation}
+is obtained. The equations of motion read
+\begin{equation}
+    \left( \frac{\dot{a}}{a}\right)^2 = \frac{1}{3} \rho + \frac{\Lambda}{3}
+    \label{Cosmo:Friedmann1},
+\end{equation}
+\begin{equation}
+    \frac{\ddot{a}}{a} = -\frac{1}{6} \left( \rho + 3p  \right) + \frac{\Lambda}{3}.
+    \label{Cosmo:Friedmann2}
+\end{equation}
+These are the Friedmann equations, which describe how the universe evolves over time. The conservation equation is derived by plugging equation \eqref{Cosmo:Friedmann2} into the derivative of equation \eqref{Cosmo:Friedmann1}, which gives
+\begin{equation}
+    \dot{\rho} + 3 H \pr{\rho + p} = 0.
+\end{equation}
+The Hubble parameter
+\begin{equation}
+    H = \frac{\dot{a}}{a}
+\end{equation}
+is the relative expansion rate of the universe, with present value of $H_0 = H(a_0)$ (see table \ref{GR:tab:planckdensityparam}). By convention, the scale factor is normalized to $a_0 = 1$ today. The conservation equation can be solved for the different components of the universe—radiation, matter, and dark energy. For relativistic matter, the pressure is $p = \rho/3$, for non-relativistic matter, the pressure is $p = 0$, while the accelerated expansion requires the cosmological constant to have a pressure $p = -\rho$. The conservation equations are thus
+\begin{align}
+    \rho_{\mathrm{r}} &= \rho_{{\mathrm{r}}0} a^{-4},\\
+    \rho_{\mathrm{m}} &= \rho_{{\mathrm{m}}0} a^{-3},\\ 
+    \rho_\Lambda &= \rho_{\Lambda0} = \Lambda,
+\end{align}
+where a distinction between matter $\rho_{\mathrm{m}}$, which includes baryonic and dark matter, radiation $\rho_{\mathrm{r}}$, and the cosmological constant $\Lambda$ is made. 
+
+The critical density
+\begin{equation}
+    \rho_{\mathrm{crit}} = 3H^2
+\end{equation}
+defines the energy content in a flat and static universe. The dimensionless density parameters are then defined to be
+\begin{equation}
+    \Omega_{\mathrm{i}} = \frac{\rho_i}{\rho_{\mathrm{crit}}},
+\end{equation}
+so that equation \eqref{Cosmo:Friedmann1} can be rewritten as the expansion function
+\begin{equation}
+    E^2 \equiv \frac{H^2}{H_0^2} = \Omega_{\mathrm{r}0} a^{-4} + \Omega_{\mathrm{m}0} a^{-3} + \Omega_{\Lambda0}.
+\end{equation}
+The values for the density parameters at any scale factor are given by 
+\begin{equation}
+    \Omega_i(a) = \Omega_{i0} a^{-3(1+w_i)} = \Omega_{i0} E^{-2}a^{-3(1+w_i)} ,
+\end{equation}
+where 
+\begin{equation}
+    w_i = p_i / \rho_i
+\end{equation}
+is the equation of state parameter.
+
+Since the discovery of dark energy, its nature has remained unknown. For an accelerated expansion it is required to have
+\begin{equation}
+    \ddot{a} > 0. 
+\end{equation}
+From equation \eqref{Cosmo:Friedmann2} the condition that 
+\begin{equation}
+    \rho + 3p < 0, 
+\end{equation} 
+i.e., $w < -1/3$ is obtained. This results in the energy density evolving as 
+\begin{equation}
+    \rho_{\mathrm{de}} = \rho_{\mathrm{de}0} a^{-3(1+w_{\mathrm{DE}})}, 
+\end{equation} 
+with an arbitrary equation of state. A constant energy density is achieved when $w_{\mathrm{DE}} = -1$. As discussed, this is the cosmological constant.
+ 
+
 We assume the FLRW metric for the spacetime of the universe in comoving coordinates
 \begin{equation}
     \mathrm{d}s^2 = -\mathrm{d}t^2 + a^2(t)\left(\mathrm{d}r^2 + r^2(\mathrm{d}\theta^2 + \sin^2\theta \mathrm{d}\phi^2)\right).
@@ -70,7 +184,41 @@ The event horizon is the distance from which a photon can never be received by a
     r \geq r_\mathrm{e} = \int_{\tau_\mathrm{max}}^{\tau} \mathrm{d}\tau = \tau_\mathrm{max} - \tau.
 \end{equation}
 
-(The rest of cosmology should be clear)
+\section{Statistics of Random Fields}
+Statistical methods provide a way to study the large number of density fluctuations in the cosmological system. The two-point correlation function, defined as the covariance of a random field $\delta$, serves as a starting point
+\begin{equation}
+    \xi_\delta\left(\vec{x}, \vec{x}'\right)= \langle \delta(\vec{x}) \delta(\vec{x}')\rangle.
+\end{equation}
+In the cosmological context, the correlation function can be simplified by introducing homogeneity and isotropy, so that the function depends only on the absolute value of the separation of two points and is not oriented in any preferred direction, such that
+\begin{equation}
+    \xi_\delta\left(\vec{x}, \vec{x}'\right) = \xi_\delta\left( r\right)
+\end{equation}
+with $\vec{r} = |\vec{x}-\vec{x}'|$ as the distance between two points. In Fourier space, this is
+\begin{align*}
+    \langle \tilde{\delta}(\vec{k}) \tilde{\delta}(\vec{k}') \rangle 
+    &= \left\langle \int_{\vec{x}} \delta(\vec{x}) \mathrm{e}^{-i \vec{k} \cdot \vec{x}} 
+    \int_{\vec{x}'} \delta(\vec{x}') \mathrm{e}^{-i \vec{k}' \cdot \vec{x}'} \right\rangle \\
+    &= (2\pi)^3 \delta_D(\vec{k} + \vec{k}') \int_r \xi_\delta(r) \mathrm{e}^{-i \vec{k} \cdot \vec{r}},
+\end{align*}
+with the Dirac delta distribution $\delta_D$. The Dirac delta distribution arises due to the assumption of homogeneity, and for different wave vectors, the Fourier modes are uncorrelated. The power spectrum is defined as the Fourier transform of the correlation function,
+\begin{equation}
+    P_\delta = \int_r \xi_\delta(r) \mathrm{e}^{-i \vec{k} \cdot \vec{r}},
+\end{equation}
+and the correlation function in Fourier space is written as
+\begin{equation}
+    \langle \tilde{\delta}(\vec{k}) \tilde{\delta}(\vec{k}') \rangle = (2\pi)^3 \delta_D(\vec{k} + \vec{k}') P_\delta(k).
+\end{equation}
+In spherical coordinates, the power spectrum is
+\begin{equation}
+    P_\delta(k) = 4 \pi \int_0^\infty r^2 \mathrm{d}r \xi_\delta(r) j_0(kr)
+\end{equation}
+where $j_0$ is the spherical Bessel function which comes out of the integration over the angles. 
+
+The initial density fluctuations that seed structure growth arise from quantum fluctuations during the inflationary period. The quantum fluctuations are stretched to macroscopic, cosmological scales during the rapid expansion of inflation. The initial fluctuations are assumed to be a random field with a Gaussian probability distribution
+\begin{equation}
+    p(x) = \frac{1}{\sqrt{{2\pi}^d \mathrm{det}C}} \mathrm{exp}\left[-\frac{1}{2}\left(x-\mu\right)^\top C^{-1}\left(x-\mu\right)\right],
+\end{equation}
+with random variable $x$, mean $\mu=\langle x\rangle$, and covariance matrix $C = \langle x \otimes x\rangle $. A Gaussian random field is characterized by its mean and variance only. Measurements of the cmb support the assumption of a Gaussian random field and have placed tight constraints on the Gaussian nature of the initial density perturbations. This means that higher-order correlation functions beyond second order vanish or are functions of the second-order correlation function. Small non-Gaussian contributions can arise, but the two-point correlation function, i.e. the power spectrum, still describes the distribution of density fluctuations well, with higher orders suppressed. 
 
 
 \section{Inflation}
@@ -92,8 +240,8 @@ The universe is very closely approximated by flat space. This is also shown by r
 \end{equation}
 implies that the difference of the density parameter from unity depends on the amount of curvature
 \begin{align}
-    1 &= \frac{\rho}{3H^2} - \frac{k}{/(aH)^2}\\
-    &= \Omega - \frac{k}{/(aH)^2}.
+    1 &= \frac{\rho}{3H^2} - \frac{k}{(aH)^2}\\
+    &= \Omega - \frac{k}{(aH)^2}.
 \end{align}
 Then, if $(aH)^2$ grows with time $\abs{\Omega - 1}$ grows without a bound and $\Omega = 1$ is an unstable fix point. This means that any small deviations from the fixed point grows over time. Fine-tuning of $\Omega$ to a value very close to unity in the early universe could fix this problem, but it is more reasonable to search for a mechanism that can create this flatness in the late universe. 
 
@@ -119,19 +267,250 @@ If we introduce the parameter $\epsilon \equiv - \frac{ \dot{H}}{H^2}$, the acce
     \epsilon = - \frac{\mathrm{d}\ln H}{\mathrm{d}N}<1.
 \end{equation}
 
-\subsection{Single-Field Slow-Roll Inflation}
+\subsection{Selected Models of Inflation}
+\subsubsection{Single-Field Slow-Roll Inflation}
 Okay good. We have now established that a period of exponential expansion can solve the horizon and flatness problem by requiring a shrinking comoving Hubble radius. We will now discuss the simplest mechanism to achieve this. 
 
-\section{Statistics of Random Fields}
+A single scalar field is the simplest model of inflation. As with dark energy the scalar field dynamics can induce expansion with negative pressure. The dynamics of the scalar field depend on the potential $V(\phi)$, which describes the self-interaction of the scalar field. From the action
+\begin{equation}
+    S = \int\mathrm{d}^4x \sqrt{-g}\left[\frac{1}{2}R + \frac{1}{2}g^{\mu\nu}\phi_{,\mu}\phi_{,\nu} - V(\phi)\right]
+\end{equation}
+we can understand the dynamics of the scalar field without directly specifying the potential $V(\phi)$ yet. This action includes the Einstein-Hilbert action. In an FLRW background, the equation of motion for the scalar field is the Klein-Gordon equation
+\begin{equation}
+    \ddot{\phi} + 3H\dot{\phi} - V_{,\phi} = 0.
+\end{equation}
+This derived by varying the action with respect to the scalar field. By varying the action with respect to the metric, the energy-momentum tensor is derived. From this the energy and pressure components can be derived
+\begin{equation}
+    \rho_\phi = \frac{1}{2} \dot{\phi}^2 + V(\phi)  p_\phi = \frac{1}{2} \dot{\phi}^2 - V(\phi).
+\end{equation}
+This results in the equation of state 
+\begin{equation}
+    \omega_\phi \equiv \frac{p_\phi}{\rho_\phi} = \frac{\frac{1}{2} \dot{\phi}^2 - V(\phi)}{\frac{1}{2} \dot{\phi}^2 + V(\phi).}
+\end{equation}
+It becomes obvious very quickly, that the universe is expanding at an accelerated rate only when the potential dominates over the kinetic term of the scalar field. This observation lets us define the slow-roll parameters. When the potential dominates, acceleration occurs. Once the kinetic energy grows to the size of the potential, inflation ends. Let us define
+\begin{equation}
+    \epsilon = -\frac{\dot{H}}{H^2} = -\frac{\mathrm{d}\ln H}{\mathrm{d}N}.
+\end{equation}
+The second Friedmann equation
+\begin{equation}
+    \frac{\ddot{a}}{a} = - \frac{1}{6}(\rho_\phi + 3 p_\phi)= H^2 (1-\epsilon).
+\end{equation}
+Here $\epsilon \equiv \frac{3}{2}(\omega_\phi + 1) = \frac{1}{2} \frac{\dot{\phi}^2}{H^2}$. The expansion needs t ooccur for a certain amount of time, meaning that 
+\begin{equation}
+    \abs{\ddot{\phi}} << \abs{3H\dot{phi}}, \abs{V_{.\phi}}.
+\end{equation}
+This lets us define the second slow-roll parameter 
+\begin{equation}
+    \eta = -\frac{\ddot{\phi}}{H \dot{\phi}} = \epsilon - \frac{1}{2\epsilon} \frac{\mathrm{d}\epsilon}{\mathrm{d}N}
+\end{equation}
+During slow-roll(the field slowely rolls down the potential, which induces the accelerated expansion), both parameters have to be a lot less than 1. We also define the length of inflation by the number of e-flds that have passed
+\begin{equation}
+    N(\phi) = \ln\frac{a_{\mathrm{end}}}{a}.
+\end{equation}
+For slow-roll inflation the number of e-folds has to exceed at least 60. After inflation ends, the scalar field will in a complicated and not known process, release into the standard model particle. This is called reheating. After that, the standard hot big bang scenario occurs. We have now discussed the simplest model for inflation but there are many others. For example, we could include more fields than just a single scalar field. 
 
+\subsubsection{Natural Inflation}
 
 \section{Perturbation Theory}
 
 \subsection{Scalar Perturbations}
+This section will discuss how quantum fluctuations which were created during inflation grow to the macroscopic fluctuations that seed structure formation and result in primordial gravitational waves. From the CMB, it is known that the initial conditions of the universe had to include small density fluctuations which resulted in the temperature fluctuations observed today in the cmb. This section and the math involved are based on cosmological perturbation theory. All quantities $X(t,x)$ ($X = g_{\mu\nu},, \phi, \rho, p, \dots$)can be distrubed with regard to a homogeneous backgrounf $\bar{X}(t)$. The perturbations are then
+\begin{equation}
+    \delta X(t,x) \equiv X(t,x) - \bar{X}(t).
+\end{equation}
+in Fourier space, this reads
+\begin{equation}
+    X_{\mathrm{k}}(t) = \int \mathrm{d}^3x X(t,x) e^{i k \cdot x}.
+\end{equation}
+It is then possible to find the perturbed EFE. The symmetries of the spacetime allow us to decompose the perturbations into scalar, vector, and tensor components. This means that the components evolve i ndependently and are seperated. This simpliefies perturbatinos a lot. The perturbed metric is 
+\begin{equation}
+    \mathrm{d}s^2 = g_{\mu\nu} \mathrm{d}x^\mu \mathrm{d}x^\nu = -(1+2 \Phi)\mathrm{d}t^2 + 2a B_i \mathrm{d}x^i \mathrm{d}t + a^2 \left[(1-2\Psi)\delta_{ij} + E_{ij}\right] \mathrm{d}x^i\mathrm{d}x^j.
+\end{equation}
+Using the SVT decomposition in real space, we have defined
+\begin{equation}
+    B_i \equiv \partial_i B- S_i, \mathrm{ with } \partial^i S_i = 0
+\end{equation}
+and
+\begin{equation}
+E_{ij} = 2 \partial_{ij}E + \partial_{(i}F_{j)} - h_{ij}, \mathrm{ with } \partial^iF_i = 0, h^i_i = \partial^ih_{ij} = 0.    
+\end{equation}
+Vector perturbations decay with the expansion oft 
+he universe so we can disregard their contribution to the perturbed metric. As we will see soon, the scalar and tensor perturbations will evolve into the density fluctuations and gravitational waves that we have (and hope to) observe today. So far, we have not discussed the gauge. The split into perturbations and background is not unique. It depends on the choice of coordinates. Our choice of time $t$ and space $x$ is not the only choice of coordinates describing the same physics. For this reason, we will have to chose the gauge. When we do that, we automatically also define the perturbations. In order to avoid any confusinon, and to make sure that the perturbations are real, we will study gauge-invariant quantities. They cannot be removed by a coordinate transformation. Tensor-fluctuations are inherently gauge-invariant, while the scalar-perturbation channge under a coordinate transformation. Two important gauge-invariant variables are the curvature perturbation on uniform-density hypersurfaces
+\begin{equation}
+    -\zeta \equiv \Psi + \frac{H}{\dot{\bar{\rho}}} \delta \rho
+\end{equation}
+and the comoving curvature perturbation
+\begin{equation}
+    \mathcal{R} \equiv \Psi - \frac{H}{\bar{\rho} + \bar{p}} \delta q.
+\end{equation}
+There are some very important proerties about these two variables. $\zeta$ remains constant once it leaves the horizon. This means for $\zeta$ that the perturbation satisfies $\delta p_{\mathrm{en}} \equiv \delta - \frac{\dot{\bar{p}}}{\dot{\bar{\rho}}}\delta \rho = 0$. This is the non-adiabtic part od the pressure perturbation, so that $\zeta$ remains constant ($\dot{\zeta}=0$, see appendix A of the baumann lecture notes). During slow-roll, $\frac{\delta \rho}{\dot{\bar{\rho}}} = \frac{\delta \phi}{\dot{\bar{\phi}}}$ ($\rho = \frac{1}{2} \dot{\phi}^2 + V(\phi)$ with  $\dot{\phi}^2 << V(\phi)$). Then, 
+\begin{equation}
+    - \zeta \approx \Psi + \frac{H}{\dot{\bar{\phi}}} \delta \phi.
+\end{equation}
+
+During inflation, 
+\begin{equation}
+    \mathcal{R} = \Psi + \frac{H}{\dot{\bar{\phi}}} \delta \phi.
+\end{equation}
+Therefore, $\zeta$ and $\mathcal{R}$ are equal in magnitude during slow-roll inflation. The two are related by 
+\begin{equation}
+    -\zeta = \mathcal{R} + \frac{k^2}{(aH)^2} \frac{2 \bar{\rho}}{3(\bar{\rho} + \bar{p})} \Psi_{\mathrm{B}}
+\end{equation}
+with the Bardeen potential $\Psi_{\mathrm{B}}$. We can see that on superhorizon scales where $k << aH$, $\zeta$ and $\mathcal{R}$ are also equal. Since they are constant outside the horizon, we can compute the correlation function of one of the variables at horizon crossing, which will be constant and the same for the other variable on superhorizon scales. It is common to compute $\mathcal{R}$. From the EFE, we get the time evolution
+\begin{equation}
+    \dot{\mathcal{R}} = -\frac{H}{\bar{\rho} + \bar{p}}\delta p_{\mathrm{en}} + \frac{k^2}{(aH)^2}\left(\dots\right).
+\end{equation}
+This whole derivation can be found in the appendix of the Baumann lecture notes. 
+
+We will now define the power spectrum
+\begin{equation}
+    \langle \mathcal{R}_k \mathcal{R}_{k'} \rangle = (2\pi)^3 \delta (k + k') P_{\mathcal{R}}(k)
+\end{equation}
+with
+\begin{equation}
+    \Delta_s^2 \equiv \Delta_\mathcal{R}^2 = \frac{k^3}{2\pi^2}P_{\mathcal{R}}(k).
+\end{equation}
+We also define the scale-dependence of the power spectrum as the scalar sapectral index (tilt)
+\begin{equation}
+    n_s - 1 \equiv \frac{\mathrm{d}\ln \Delta_s^2}{\mathrm{d} \ln k}.
+\end{equation}
+Scalae invaraince is $n_s = 1$. (The minus one in this definition is convention.) We can define the running of the coupling as
+\begin{equation}
+    \alpha_s \equiv \frac{\mathrm{d}n_s}{\mathrm{d}\ln k}.
+\end{equation}
+so that the power spectrum is
+\begin{equation}
+    \Delta_s^2 = A_s(k_*)\left(\frac{k}{k_*}\right)^{n_s(k_*) - 1 + \frac{1}{2}a_s(k_*)\ln(k/k_*)}.
+\end{equation}
 
 \subsection{Tensor Perturbations}
+The power spectrum for tensor-perturbations, or the two polarization modes of $h_{ij}$ are 
+\begin{equation}
+    \langle h_k h_{k'} \rangle = (2\pi)^3 \delta (k+k') P_h(k)
+\end{equation}
+with
+\begin{equation}
+    \Delta_h^2 = \frac{k^3}{2\pi^2} P_h(K).
+\end{equation}
+Since we have two polarization modes, we write $\Delta_t^2 \equiv 2 \Delta_h^2$. Scale-dependance is also defined in a simliar way as with scalar perturbations $n_t \equiv frac{\mathrm{d}\ln \Delta_t^2}{\mathrm{d} \ln k}$. No $-1$ this time. This is purely conventional. The power spectrum is 
+\begin{equation}
+    \Delta_t^2(k) = A_t(k_*)\left(\frac{k}{k_*}\right)1^{n_s(k_*)}.
+\end{equation}
+The power spectra will now be calculated from first principles. I will not include the whole derivation but hey can be found either in Daan's script (more general) or in Baumann's script (for de Sitter space)
+
+\section{Quantum Fluctuations}
+We can also write the perturbed metric in the following form. This is called the ADM metric, which uses the spatially flat gauge in which $\Psi = E = 0$
+\begin{equation}
+    \mathrm{d}s^2 = -N(t,x)\mathrm{d}t^2 + h_{ij}(t,x)\left(\mathrm{d}x^i + N^i(t,x)\mathrm{d}t\right)\left(\mathrm{d}x^j + N^j(t,x)\mathrm{d}t\right).
+\end{equation}
+In this formalism, we split time and spacwe into two new parts. Space now has a non-homogeneous time-dependence. Space is split into 3d hypersurfaces for a fixed time $t$, which is embedded into a 4d manifold in spacetime. The metric also contains the lapse function $N(t,x)$ and shoft vector $N^i(t,x)$. The Ricci scalar, which appears in the action of the scalar field with gravity, can be rewritten with the new ADM variables
+\begin{equation}
+    R = R^{(3)} + K^{ij}K_{ij} - K^2
+\end{equation}
+where $R^{(3)} = h^{ij}R^{(3)}_{ij}$, and $K = h^{ij}K_{ij}$. $R^{(3)}_{ij}$ is the Ricci tensor of the induced 3-metric $h^{ij}$. The extrinsic curvature is $K_{ij} = \frac{1}{2N}(h'_{ij} - \nabla_i N_j - \nabla_j N_i)= \frac{E_{ij}}{N}$. The action is then written as 
+\begin{equation}
+    S = \frac{1}{2} \int \mathrm{d}^4x \sqrt{h}N \left(R^{(3)} + K^{ij}K_{ij} - K^2 + N^{-2}\left(\phi' - N^i \partial_i \phi\right)+h^{ij} \partial_i\phi\partial_j\phi - 2V(\phi)\right).
+\end{equation}
+Varying the action with respect to the lapse funtion $N$ results in 
+\begin{equation}
+    R^{(3)} - N^2(E^{ij}E_{ij} - E^2 + (\phi' - N^i \delta_i\phi)^2) - 2V(\phi) = 0
+\end{equation}
+and with repsect to the shift function $N^i$ results in 
+\begin{equation}
+    \nabla_i(N^{-1}(E^i_j - E \delta^i_j)) = 0.
+\end{equation}
+We can now perturbed the two varaibles, such that 
+\begin{equation}
+    N = 1 + N^{(1)}(t,x), N^i = \partial_i \alpha(t,x)
+\end{equation}
+because the unperturbed values are $N 0 1$ and $N^i = 0$. Insertiung these into the equation of motions let's us obtain 
+\begin{equation}
+    N^{(1)} = - \frac{\mathcal{R}}{H}, \partial^2\alpha(t,x) = \frac{\partial^2 \mathcal{R}}{H} - a^2 \frac{\phi'}{2H^2}\mathcal{R'}.
+\end{equation}
+We can also get an expression for the Ricci scalar
+\begin{equation}
+    R^{(3)} = \frac{e^{2\mathcal{R}}}{a^2}(4 \partial^2 \mathcal{R}-2(\partial\mathcal{R})^2)
+\end{equation}
+Now reinsert into the action to get
+\begin{equation}
+    S = \frac{1}{2} \int \mathrm{d}^4x\left( ae^{-\mathcal{R}}\left(1-\frac{\mathcal{R'}}{H}\right)\left(4\partial^2 \mathcal{R} - 2(\partial\mathcal{R})^2 - 2a^2Ve^{-2\mathcal{R}}\right)+a^3e^{-3\mathcal{R}}\left(-6(H-\mathcal{R}')^2 + \phi'^2\right)\right).
+\end{equation}
+This simpilfies to 
+\begin{equation}
+    S^{(2)} = \int \mathrm{d}^3x \mathrm{d}\tau a \left(\epsilon \dot{\mathcal{R}}^2 - \epsilon (\partial \mathcal{R})^2\right)
+\end{equation}
+In Fourier space, after varying the action, this is 
+\begin{equation}
+    \ddot{\mathcal{R}}_k + 2\mathcal{H}\dot{\mathcal{R}}_k + k^2 \mathcal{R}_k = 0.
+\end{equation}
+This can now be simiplifef when we define the Mukhanov variable $f_k \equiv z \mathcal{R}_k$ with $z \equiv a \sqrt{2 \epsilon}$. Then, the equation of motion reads 
+\begin{equation}
+    \ddot{f}_k + \left(k^2 - \frac{\ddot{z}}{z} \right) f_k = 0
+\end{equation}
+Expanding $\frac{\ddot{z}}{z}$ to leading order in the slow-roll para,eter $\epsilon$ results in ($\mathcal{H} = aH$)
+\begin{equation}
+    \ddot{f}_k + \left(k^2 - 2 (aH)^2 \right) f_k = 0.
+\end{equation}
+At early times, when $k>>aH$, we then have an equation for a simple harmnic oscillator
+\begin{equation}
+    \ddot{f}_k + k^2 f_k = 0.
+\end{equation}
+On superhprizon scales, on the other hand, we have
+\begin{equation}
+    \ddot{f}_k - 2 (aH)^2 f_k = 0.
+\end{equation}
+This has a non-oscillating solution, which means that the solutions are frozen in oncve they cross the horizon. we need to now find a general solution. This is done by writing
+\begin{equation}
+    \frac{\dot{z}}{z} = aH(1+/\frac{\eta}{2})
+\end{equation}
+\begin{equation}
+    \frac{\ddot{z}}{z} = (aH)^2 (2-\epsilon+ \frac{3}{2}\eta)+\order{\epsilon^2}.
+\end{equation}
+For constant $\epsilon$
+\begin{equation}
+    \mathcal{H} = -\frac{1}{\tau}(1+\epsilon)
+\end{equation}
+since $\epsilon = 1-\dot{\mathcal{H}}/\mathcal{H}^2$. Then,
+\begin{equation}
+    \ddot{f}_k + \left(k^2 - \frac{\nu^2 - 1/4}{\tau^2}\right)f_k = 0
+\end{equation}
+with $\nu \equiv \frac{3}{2} + \epsilon + \frac{1}{2} \eta$. This equation has the solution
+\begin{equation}
+    f_k(\tau) = \frac{\sqrt{\pi}}{2}\sqrt{-\tau}H_\nu^{(1)}(-k\tau).
+\end{equation}  
+$H^{(1)}_\nu$ is the Hankel function of the first kind (combo of Bessel functions). Bunch-Davies vacuum inside the Hubble horizon ($-k\tau \rightarrow - \inf$).
+
+To derive the correlation functions we need to quantize our field. We do this by promoting $\mathcal{R}$ to an operator $\hat{\mathcal{R}}$ by decpomposing it into creation and annihilation operators
+\begin{equation}
+    \hat{\mathcal{R}}_k = \mathcal{R}_k \hat{a}_k + \mathcal{R}_k^* \hat{a}^\dagger_{-k}.
+\end{equation}
+The creation and annihilation operators follow the standard commutation relations as in qunatum mechanisc. With $\mathcal{R} = f/z$, we get
+\begin{equation}
+    z(\tau)= z_*(\tau/\tau_*)^{1/2 - \nu}
+\end{equation}
+with some reference time $\tau_*$, which we will chose to be at horizon crossing of mode with wavenumer $k_*$ such that $\tau_* = -1/k_*$. Finally, the correlation function is 
+\begin{equation}
+    \langle \hat{\mathcal{R}}_{k_1}\hat{\mathcal{R}}_{k_2} \rangle = \delta^3(k_1 +k_2) \abs{\mathcal{R}_k}^2 \equiv (2\pi)^3 P_\mathcal{R}(k) \delta^3(k_1+k_2)
+\end{equation}
+The dimensionless power spectrum is defined as 
+\begin{equation}
+    \Delta_\mathcal{R}^2 = \frac{k^3}{2\pi^2}P_\mathcal{R}(k) = \frac{k^3}{2\pi^2}\abs{\mathcal{R}_k}^2 = \frac{k^3}{2\pi^2} \frac{\abs{f_k}^2}{z(\tau)^2}.
+\end{equation}
+This expression can be rewritten as (DO THIS)
+\begin{equation}
+    \Delta_\mathcal{R}^2(k) = \frac{1}{8\pi^2\epsilon_*}\frac{H_*^2}{M_\mathrm{pl}^2}\left(\frac{k}{k_*} \right)^{3-2\nu}.
+\end{equation}
+Now, finally, we get the expression for the dimensionless power spectrum we had discussed earlier 
+\begin{equation}
+    \Delta_\mathcal{R}^2(k) = A_s\left(\frac{k}{k_*} \right)^{n_s-1}.
+\end{equation}
+This let's us define the spectral index us
+\begin{equation}
+    n_s - 1 \equiv 3-2\nu = -2\epsilon - \eta.
+\end{equation}
 
 \section{Observables}
+\subsection{Cosmic Variance}
 
 \subsection{Cosmic Microwave Background}
 
@@ -140,5 +519,7 @@ Okay good. We have now established that a period of exponential expansion can so
 
 \section{Tensor Bispectrum}
 The temperature power spectrum (CMB) cannot provide more info in lower-noise observations due to diffusion damping. B-modes in the polarization can constrain tensor fluctuations on large angular scales. But there are some obstacles, like contribution from dust and lensing of E- into B-modes that obstruct the signal. Look beyond the PS and consider non-Gaussian correlations that involve tensor fluctuations. One avenue is the Bispectra from temperature and E-mode fluctuations that could both constrain scalar and tensor fluctuations. Again, this is not that great because the scalar contribution is larger than that of tensors. We can also consider the Bispectra involving B-modes, which are not sourced from scalar fluctuations. One is the $\langle BTT \rangle$ bispectrum, which naturally does not vanish. In a parity conserving universe, some two- and three-point functions involving B-modes vanish, because B-modes are a pseudo-.scalar and therefore have a sign flip under spatial inversion. Therefore, non-Gaussian CMB statistics wit B-modes can be constrained by existing data, and upcoming lower-noise CMB polarization data that will improve these existing constraints. 
+
+\section{Lattice Simulations of Axion-U(1) Inflationv}
 
 \end{document}
